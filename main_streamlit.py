@@ -107,7 +107,8 @@ with st.container():
         )
 
 if start_button:
-    url = "http://127.0.0.1:9035/vehicle_diagnosis"
+    # url = "http://127.0.0.1:9035/vehicle_diagnosis"
+    url = "http://51.21.161.137:9036/vehicle_diagnosis"
     headers = {"Content-Type": "application/json"}
     body = {"user_id": user_id, "chat_id": None, "query": None}
     res = requests.post(url, headers=headers, json=body)
@@ -125,7 +126,8 @@ st.markdown("</div>", unsafe_allow_html=True)
 if query:
     st.session_state.messages.append({'role': 'user', 'content': query})
     try:
-        url = "http://127.0.0.1:9035/vehicle_diagnosis"
+        # url = "http://127.0.0.1:9035/vehicle_diagnosis"
+        url = "http://51.21.161.137:9036/vehicle_diagnosis"
         headers = {"Content-Type": "application/json"}
         body = {"chat_id": st.session_state.chat_id, "user_id": user_id, "query": query}
         res = requests.post(url, headers=headers, json=body)
